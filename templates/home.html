@@ -1,0 +1,27 @@
+{% include 'layout.html' %}
+
+<div class="container mx-auto flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+    <div class="bg-gray-200 p-4 mb-4 rounded-lg sm:mx-auto sm:w-3/4">
+        <div class="grid grid-cols-12 gap-4 items-center font-semibold">
+            <span class="col-span-1">No.</span>
+            <span class="col-span-4 text-center">Destination</span>
+            <span class="col-span-4 text-center">Travel Dates</span>
+            <span class="col-span-3 text-right"></span>
+        </div>
+    </div>
+
+    <div class="mb-4 rounded-lg sm:mx-auto sm:w-3/4">
+        {% for vacation in vacations %}
+        <div class="grid grid-cols-12 gap-4 items-center bg-gray-100 p-4 mb-3 rounded-lg">
+            <span class="col-span-1 text-2xl font-bold">{{loop.index}}</span>
+            <span class="col-span-4 text-lg text-center">{{vacation.destination}}</span>
+            <span class="col-span-4 text-sm text-gray-600 text-center">{{vacation.travel_dates}}</span>
+            <div class="col-span-3 text-right">
+              <button type="button" onclick="window.location.href='open-vacation/{{vacation.id}}'" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                Open
+              </button>
+            </div>
+          </div>
+        {% endfor %}
+    </div>
+</div>

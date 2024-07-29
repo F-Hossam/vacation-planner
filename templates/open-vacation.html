@@ -1,0 +1,101 @@
+{% include 'layout.html' %}
+
+<div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+    <div class="sm:mx-auto sm:w-full sm:max-w-lg">
+        <img class="mx-auto h-20 w-auto" src="{{ url_for('static', path='/planner/images/logo.png') }}"
+            alt="Your Company" />
+        <h2 class="mt-3 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+            Your Vacation Plan
+        </h2>
+    </div>
+
+    {% if response_dict %}
+    <div class="container sm:mx-auto sm:w-full min-h-full flex flex-col px-6 py-12 items-center justify-center lg:px-8">
+        <div class="flex flex-col sm:w-3/6 p-4 overflow-y-auto w-full">
+            <div>
+                <h2 class="text-2xl font-bold mb-4">Destination:</h2>
+                <p class="text-lg">
+                    {{ response_dict.destination }}
+                </p>
+            </div>
+
+            <div class="mt-2">
+                <h2 class="text-2xl font-bold mb-4">Travel Dates:</h2>
+                <p class="text-lg">
+                    {{ response_dict.travel_dates }}
+                </p>
+            </div>
+
+            <div class="mt-2">
+                <h2 class="text-2xl font-bold mb-4">Itinerary:</h2>
+                <div class="text-lg">
+                    <table class="w-full border-collapse bg-white shadow-md rounded-lg overflow-hidden">
+                        <thead class="bg-gray-100">
+                            <tr>
+                                <th class="py-3 px-4 font-semibold text-sm text-gray-700 uppercase">Day</th>
+                                <th class="py-3 px-4 font-semibold text-sm text-gray-700 uppercase">Time of Day</th>
+                                <th class="py-3 px-4 font-semibold text-sm text-gray-700 uppercase">Activities</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            {% for day, activities in response_dict.itinerary.items() %}
+                            <tr>
+                                <td rowspan="3" class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ day }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Morning</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">{{ activities['Morning'][0] | safe }}</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Afternoon</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">{{ activities['Afternoon'][0] | safe }}</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Evening</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">{{ activities['Evening'][0] | safe }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="mt-2">
+                <h2 class="text-2xl font-bold mb-4">Budget Breakdown:</h2>
+                <div class="text-lg">
+                    <div class="max-w-md mx-auto bg-white shadow-md rounded-lg overflow-hidden">
+                        <table class="w-full text-left border-collapse">
+                          <thead>
+                            <tr class="bg-gray-100">
+                              <th class="py-3 px-4 font-semibold text-sm text-gray-700 uppercase">Category</th>
+                              <th class="py-3 px-4 font-semibold text-sm text-gray-700 uppercase">Amount</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {% for item in response_dict.budget_breakdown %}
+                              {% set category, amount = item.split(':') %}
+                              <tr class="border-t border-gray-200">
+                                <td class="py-3 px-4 text-sm">{{ category.strip() }}</td>
+                                <td class="py-3 px-4 text-sm font-medium text-gray-900">{{ amount.strip() }}</td>
+                              </tr>
+                            {% endfor %}
+                          </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-2">
+                <h2 class="text-2xl font-bold mb-4">Estimated Cost:</h2>
+                <p class="text-lg">
+                    {{ response_dict.total_estimated_cost }}
+                </p>
+            </div>
+        </div>
+
+        <div class="bg-gray-100 p-4 fixed bottom-0 left-0 right-0 flex justify-center gap-x-10">
+            <button type="button" onclick="window.location.href='/vacation/download-pdf/{{response_dict.vacation_id}}'"
+                class="bg-pink-500 text-white px-6 py-2 rounded">Download PDF</button>
+        </div>
+    </div>
+    {% endif %}
+
+</div>

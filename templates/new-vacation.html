@@ -1,0 +1,149 @@
+{% include 'layout.html' %}
+
+<div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+    <div class="sm:mx-auto sm:w-full sm:max-w-lg">
+        <img class="mx-auto h-20 w-auto" src="{{ url_for('static', path='/planner/images/logo.png') }}"
+            alt="Your Company" />
+        <h2 class="mt-3 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+            New Vacation
+        </h2>
+    </div>
+
+    <div class="mt-6 sm:mx-auto sm:w-full sm:max-w-xl">
+        <form method="POST">
+            <div>
+                <label for="domicile" class="block text-sm font-medium leading-6 text-gray-900">City Of Residence:</label>
+                <div class="mt-2">
+                    <input id="domicile" name="domicile" type="text" autocomplete="city"
+                        class="block mt-2 text-sm sm:text-base font-medium w-full rounded-md border-0 py-4 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6" />             
+                </div>
+            </div>
+
+            <div class="mt-4">
+                <label for="destination" class="block text-sm font-medium leading-6 text-gray-900">Destination:</label>
+                <div class="mt-2">
+                    <input id="destination" name="destination" type="text" autocomplete="city"
+                        class="block mt-2 text-sm sm:text-base font-medium w-full rounded-md border-0 py-4 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6" />
+                </div>
+            </div>
+
+            <div class="mt-4">
+                <label for="departure-time" class="block text-sm font-medium leading-6 text-gray-900">Departure
+                    Time:</label>
+                <div class="mt-2">
+                    <input id="departure" name="departuretime" type="date" autocomplete="bday-day"
+                        class="block mt-2 text-sm sm:text-base font-medium w-full rounded-md border-0 py-4 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6" />
+                </div>
+            </div>
+
+            <div class="mt-4 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-6">
+                <div class="sm:col-span-3">
+                    <label for="num-days" class="block text-sm font-medium leading-6 text-gray-900">Number Of
+                        Days:</label>
+                    <div class="mt-2">
+                        <input id="num-days" name="numdays" type="number" min="1"
+                            class="block mt-2 text-sm sm:text-base font-medium w-full rounded-md border-0 py-4 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6" />
+                    </div>
+                </div>
+
+                <div class="sm:col-span-3">
+                    <label for="num-days" class="block text-sm font-medium leading-6 text-gray-900">Budget:</label>
+                    <div class="mt-2">
+                        <input id="num-days" name="budget" type="number" min="1"
+                            class="block mt-2 text-sm sm:text-base font-medium w-full rounded-md border-0 py-4 px-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-4">
+                <label for="hobbies" class="block text-sm font-medium leading-6 text-gray-900">Hobbies:</label>
+                <div class="mt-2 grid grid-cols-2 gap-x-3 gap-y-5 sm:grid-cols-3 lg:grid-cols-3 xl:gap-x-6">
+                    <div class="group relative add-hobbie-btn" id="beachs">
+                        <div
+                            class="hobbie-btn-child bg-gray-200 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md lg:aspect-none group-hover:opacity-75 lg:h-fit">
+                        <div class="flex flex-col py-3 px-3" name="beachs">
+                            <img class="w-8 h-8 sm:h-8" src="{{ url_for('static', path='/planner/images/beach.png') }}" alt="activity">
+                            <div class="mt-2 text-sm sm:text-base font-medium">Beachs</div>
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="group relative add-hobbie-btn" id="skydiving">
+                        <div
+                            class="hobbie-btn-child bg-gray-200 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md lg:aspect-none group-hover:opacity-75 lg:h-fit">
+                        <div class="flex flex-col py-3 px-3" name="skydiving">
+                            <img class="w-8 h-8 sm:h-8" src="{{ url_for('static', path='/planner/images/skydiving.png') }}" alt="activity">
+                            <div class="mt-2 text-sm sm:text-base font-medium">skydiving</div>
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="group relative add-hobbie-btn" id="shopping">
+                        <div
+                            class="hobbie-btn-child bg-gray-200 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md lg:aspect-none group-hover:opacity-75 lg:h-fit">
+                        <div class="flex flex-col py-3 px-3" name="shopping">
+                            <img class="w-8 h-8 sm:h-8" src="{{ url_for('static', path='/planner/images/shopping.png') }}" alt="activity">
+                            <div class="mt-2 text-sm sm:text-base font-medium">Shopping</div>
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="group relative add-hobbie-btn" id="sightseeing">
+                        <div
+                            class="hobbie-btn-child bg-gray-200 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md lg:aspect-none group-hover:opacity-75 lg:h-fit">
+                        <div class="flex flex-col py-3 px-3" name="sightseeing">
+                            <img class="w-8 h-8 sm:h-8" src="{{ url_for('static', path='/planner/images/sightseeing.png') }}" alt="activity">
+                            <div class="mt-2 text-sm sm:text-base font-medium">Sightseeing</div>
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="group relative add-hobbie-btn" id="sports">
+                        <div
+                            class="hobbie-btn-child bg-gray-200 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md lg:aspect-none group-hover:opacity-75 lg:h-fit">
+                        <div class="flex flex-col py-3 px-3" name="sports">
+                            <img class="w-8 h-8 sm:h-8" src="{{ url_for('static', path='/planner/images/sports.png') }}" alt="activity">
+                            <div class="mt-2 text-sm sm:text-base font-medium">Sports</div>
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="group relative add-hobbie-btn" id="ziplining">
+                        <div
+                            class="hobbie-btn-child bg-gray-200 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md lg:aspect-none group-hover:opacity-75 lg:h-fit">
+                        <div class="flex flex-col py-3 px-3" name="ziplining">
+                            <img class="w-8 h-8 sm:h-8" src="{{ url_for('static', path='/planner/images/zip-line.png') }}" alt="activity">
+                            <div class="mt-2 text-sm sm:text-base font-medium">Ziplining</div>
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="group relative add-hobbie-btn" id="festival">
+                        <div
+                            class="hobbie-btn-child bg-gray-200 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md lg:aspect-none group-hover:opacity-75 lg:h-fit">
+                        <div class="flex flex-col py-3 px-3" name="festival">
+                            <img class="w-8 h-8 sm:h-8" src="{{ url_for('static', path='/planner/images/festival.png') }}" alt="activity">
+                            <div class="mt-2 text-sm sm:text-base font-medium">Festival</div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <input type="hidden" id="hobbies" name="hobbies" value="">
+            </div>
+
+            <div class="mt-4">
+                <button type="submit" id="create-btn"
+                    class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                    Create
+                </button>
+            </div>
+        </form>
+    </div>
+    <div class="loader-container" hidden>
+        <div class="bouncing-dots">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
+</div>
