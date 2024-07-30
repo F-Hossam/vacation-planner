@@ -63,7 +63,8 @@ pip install -r requirements.txt
 Follow the instructions below so you can run this project without any problems:
 
 - Sign up if you don't have an account.
-![Sign Up](/git%20images/)
+
+![Sign Up](/git%20images/signup.png)
 - Login to your account.
 
 ![Login](/git%20images/login.png)
