@@ -65,6 +65,11 @@ Follow the instructions below so you can run this project without any problems:
 
 *Vacation Planner* offered multiple features for the user to ease his experience in this web application:
 
+- Generate a vacation plan based on the user inputs through a HTML form.
+- Give multiple options for the user to select the right one which suits his needs.
+- Provide the ability of saving the generated plan so it can be accessible through the home page for future viewing.
+- Convert the desired plan to a PDF file.
+
 ## Contact
 
 Hossam Fadil 
