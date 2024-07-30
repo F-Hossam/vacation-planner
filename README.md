@@ -63,17 +63,22 @@ pip install -r requirements.txt
 Follow the instructions below so you can run this project without any problems:
 
 - Sign up if you don't have an account.
--[Sign Up](/git%20images/)
+![Sign Up](/git%20images/)
 - Login to your account.
--[Login](/git%20images/login.png)
+
+![Login](/git%20images/login.png)
 - Fill the form with the required information.
--[Form](/git%20images/new%20vacation.png)
+
+![Form](/git%20images/new%20vacation.png)
 - Click on the "Create" button to be redirected to a page to see the generated plan and change it if you want.
--[Generated Plan](/git%20images/)
+
+![Generated Plan](/git%20images/agent%20response.png)
 - Click on the "Good" button to be redirected to the open-vacation page.
--[Good Button](/git%20images/)
+
+![Good Button](/git%20images/open%20vacation.png)
 - You can download the generated plan as a PDF file.
--[Download PDF](/git%20images/)
+
+![Download PDF](/git%20images/pdf.png)
 
 ## Features
 
