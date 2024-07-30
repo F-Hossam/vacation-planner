@@ -1,5 +1,7 @@
 # Vacation Planner - WEB APP
 
+![Vacation Planner](/git%20images/github%20banner.png)
+
 AI-powered web application for generating vacations plans created with FastAPI & LangChain.
 
 ## Table of Contents
@@ -54,12 +56,13 @@ source venv/bin/activate
 - **4 - Install the required packages**
 ```bash
 pip install -r requirements.txt
-
 ```
 
 ## Usage
 
 Follow the instructions below so you can run this project without any problems:
+
+- 
 
 ## Features
 
