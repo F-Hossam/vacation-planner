@@ -96,8 +96,7 @@ Follow the instructions below so you can run this project without any problems:
 
 Hossam Fadil 
 
-- [@1hossamdev](https://twitter.com/1hossamdev)
 - [LinkedIn](https://www.linkedin.com/in/hossam-fadil)
-- hossamfadil24@gmail.com
+- f.fadilhossam@gmail.com
 
 Project Link: [https://github.com/F-Hossam/vacation-planner.git](https://github.com/F-Hossam/vacation-planner.git)
